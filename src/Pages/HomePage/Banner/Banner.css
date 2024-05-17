@@ -1,0 +1,20 @@
+.carousel .slider-wrapper {
+    height: 700px;
+}
+.carousel{
+    text-align: center;
+}
+
+/* For tablets and below */
+@media (max-width: 768px) {
+    .carousel .slider-wrapper {
+        height: auto;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    .carousel .slider-wrapper {
+        height: auto;
+    }
+}

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Nav = () => {
   const navOptions = (
     <>
-      <NavLink>
+      <NavLink to="/" className={({isActive})=> isActive ? "text-green-500 font-bold" : "text-black lg:text-white"}>
         {" "}
         <li>
           <a>HOME</a>
@@ -21,13 +21,13 @@ const Nav = () => {
           <a>DASHBOARD</a>
         </li>
       </NavLink>
-      <NavLink>
+      <NavLink to="/menu" className={({isActive})=> isActive ? "text-green-500 font-bold" : "text-black lg:text-white"}>
         {" "}
         <li>
           <a>OUR MENU</a>
         </li>
       </NavLink>
-      <NavLink>
+      <NavLink to="/shop" className={({isActive})=> isActive ? "text-green-500 font-bold" : "text-black lg:text-white"}>
         {" "}
         <li>
           <a>OUR SHOP</a>
@@ -42,7 +42,7 @@ const Nav = () => {
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-5 w-5 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -57,17 +57,17 @@ const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu  menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navOptions}
           </ul>
         </div>
-        <a className="btn pl-0 btn-ghost text-xl">
+        <a className="btn pl-0 text-white btn-ghost text-xl">
           BISTRO BOSS
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navOptions}</ul>
+        <ul className="menu menu-horizontal px-1 space-x-3">{navOptions}</ul>
       </div>
       <div className="navbar-end">
         <a className="btn">Button</a>

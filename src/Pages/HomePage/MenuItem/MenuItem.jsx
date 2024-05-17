@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../Componnents/SectionTitle/SectionTitle";
+import useMenu from "../../../Hooks/useMenu";
 
 const MenuItem = () => {
-  const [menu, setMenu] = useState([]);
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const popularItems = data.filter((item) => item.category === "popular");
-        setMenu(popularItems);
-      });
-  }, []);
+ const [menu] = useMenu();
+ const popular = menu.filter(items=>items.category==="popular");
+
+  // const [menu, setMenu] = useState([]);
+  // useEffect(() => {
+  //   fetch("menu.json")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const popularItems = data.filter((item) => item.category === "popular");
+  //       setMenu(popularItems);
+  //     });
+  // }, []);
 
   return (
     <div>
@@ -21,7 +25,7 @@ const MenuItem = () => {
         ></SectionTitle>
       </section>
       <section className="mt-10 mb-5 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:px-16">
-        {menu.map((items) => (
+        {popular.map((items) => (
           <div key={items._id}>
              <div className="flex gap-5">
                   <img style={{borderRadius: "0px 200px 200px 200px"}} className="h-[104px] w-[118px]" src={items.image} alt="" />
